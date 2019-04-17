@@ -1,0 +1,9 @@
+需求：
+    实现：城市 -> 部门 -> 员工 -> 员工的详细信息的 Ajax 显示
+    （1）3张数据表：
+        locations: location_id, city
+        department: department_id, department_name, location_id
+        employee_id, last_name, salary, email, department_id
+     （2）需要新学习 jQuery 的一个插件：blockUI
+
+
