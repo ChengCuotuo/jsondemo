@@ -11,8 +11,21 @@
 <head>
     <title>selectCity</title>
     <script type="text/javascript" src="${pageContext.request.contextPath}/script/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/script/jquery.blockUI.js"></script>
     <script type="text/javascript">
         $(function () {
+            //使用 BlockUI
+            $(document).ajaxStart(function(){
+                $.blockUI({
+                    message: '正在加载...',
+                    css : {
+                        border: 'none'
+                    },
+                    overlayCSS:{
+                        backgroundColor:'#fff'
+                    }
+                })
+            }).ajaxStop($.unblockUI);
             //1.获取 #province 添加 change 响应函数
             //2.使  #city 只保留第一个 option
             //3.获取 #province 选择的值，若该值为 "",即选择的是 "请选择..." 此时不需要发送 Ajax 请求
@@ -63,7 +76,7 @@
     </script>
 </head>
 <body>
-<img alt="" id="loading" src="images/loading.gif" style="display: none"/>
+
 <br /><br />
 Provinces:
 <select id="province" name="province">
